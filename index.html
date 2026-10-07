@@ -36,4 +36,12 @@ const balance=p-u, monthly=balance/m, weekly=monthly/4.345;
 document.getElementById('rPrice').textContent=naira(p);document.getElementById('rUpfront').textContent=naira(u);document.getElementById('rBalance').textContent=naira(balance);document.getElementById('rMonthly').textContent=naira(monthly);document.getElementById('rWeekly').textContent=naira(weekly);calculator.style.display='none';results.style.display='block';window.scrollTo(0,0)};
 document.getElementById('back').onclick=function(){results.style.display='none';calculator.style.display='block';window.scrollTo(0,0)};
 })();
+</script><script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .then(() => console.log("Service Worker registered"))
+      .catch(error => console.log("Service Worker error:", error));
+  });
+}
 </script></body></html>
