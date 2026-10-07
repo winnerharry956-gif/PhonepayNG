@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>PhonePay NG</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f5f8f8;color:#222}.app{max-width:480px;margin:auto;min-height:100vh;background:#fff;padding:24px 18px}.logo{text-align:center;color:#008f82;font-size:30px;font-weight:800;margin:12px 0 5px}.sub{text-align:center;color:#666;margin-bottom:28px}.card{background:#fff;border-radius:18px;padding:20px;box-shadow:0 4px 18px #00000012}.field{margin-bottom:18px}label{display:block;font-weight:700;margin-bottom:8px} .moneybox{position:relative}.moneybox span{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:700;color:#555;font-size:17px}.moneybox input{padding-left:42px}input,select{width:100%;padding:15px;border:1px solid #ccc;border-radius:10px;font-size:17px;background:#fff}input:focus,select:focus{outline:2px solid #008f82;border-color:#008f82}button{width:100%;border:0;border-radius:12px;padding:16px;background:#008f82;color:#fff;font-size:18px;font-weight:800;cursor:pointer;margin-top:8px}button:active{transform:scale(.99)}.error{color:#c62828;font-weight:600;margin-top:12px;display:none}.result{display:none}.row{display:flex;justify-content:space-between;gap:10px;padding:14px 0;border-bottom:1px solid #eee}.amount{font-weight:800;text-align:right}.mainamount{font-size:23px;color:#008f82}.notice{margin-top:18px;padding:13px;border-radius:10px;background:#fff7df;font-size:13px;color:#665300}.back{background:#555;margin-top:14px}.hint{font-size:12px;color:#777;margin-top:6px}
+</style>
+</head><body><div class="app">
+<div class="logo">PhonePay NG</div><div class="sub">Know your phone payment before you buy.</div>
+<div id="calculator" class="card">
+<div class="field"><label for="price">Phone price</label><div class="moneybox"><span>₦</span><input id="price" type="text" inputmode="decimal" autocomplete="off" placeholder="163,500"></div><div class="hint">Example: ₦163,500 or 163500</div></div>
+<div class="field"><label for="upfront">Amount I can pay now</label><div class="moneybox"><span>₦</span><input id="upfront" type="text" inputmode="decimal" autocomplete="off" placeholder="20,000"></div><div class="hint">Example: ₦20,000 or 20000</div></div>
+<div class="field"><label for="months">Payment period</label><select id="months"><option value="3">3 months</option><option value="6" selected>6 months</option><option value="9">9 months</option><option value="12">12 months</option></select></div>
+<button id="calculate" type="button">CALCULATE PAYMENT</button><div id="error" class="error"></div>
+</div>
+<div id="results" class="card result"><h2>Payment Estimate</h2>
+<div class="row"><span>Phone price</span><span id="rPrice" class="amount"></span></div><div class="row"><span>Upfront payment</span><span id="rUpfront" class="amount"></span></div><div class="row"><span>Remaining balance</span><span id="rBalance" class="amount"></span></div><div class="row"><span>Estimated monthly payment</span><span id="rMonthly" class="amount mainamount"></span></div><div class="row"><span>Estimated weekly payment</span><span id="rWeekly" class="amount mainamount"></span></div>
+<div class="notice">Estimated payment — actual financing may be different.<br><br>PhonePay NG provides estimates only. We do not provide loans or financing. Actual payment amounts, interest, fees and eligibility depend on the financing provider.</div><button id="back" type="button" class="back">CALCULATE AGAIN</button></div>
+</div>
+<script>
+(function(){
+const price=document.getElementById('price'), upfront=document.getElementById('upfront'), months=document.getElementById('months'), error=document.getElementById('error'), calculator=document.getElementById('calculator'), results=document.getElementById('results');
+function clean(v){return String(v||'').replace(/₦/gi,'').replace(/,/g,'').replace(/\s/g,'').replace(/[^0-9.]/g,'')}
+function num(v){const s=clean(v); return s===''?NaN:Number(s)}
+function formatInput(el){const n=num(el.value); if(Number.isFinite(n)){el.value=new Intl.NumberFormat('en-NG',{maximumFractionDigits:2}).format(n)}}
+function naira(n){return '₦'+new Intl.NumberFormat('en-NG',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n)}
+[price,upfront].forEach(el=>{el.addEventListener('blur',()=>formatInput(el));el.addEventListener('input',()=>{el.value=el.value.replace(/[^0-9₦,\.\s]/gi,'')})});
+document.getElementById('calculate').onclick=function(){
+const p=num(price.value),u=num(upfront.value),m=Number(months.value); error.style.display='none';
+if(!Number.isFinite(p)||p<=0){error.textContent='Please enter a valid phone price, e.g. ₦163,500.';error.style.display='block';return}
+if(!Number.isFinite(u)||u<0){error.textContent='Please enter a valid upfront payment, e.g. ₦20,000.';error.style.display='block';return}
+if(u>p){error.textContent='Upfront payment cannot be higher than the phone price.';error.style.display='block';return}
+const balance=p-u, monthly=balance/m, weekly=monthly/4.345;
+document.getElementById('rPrice').textContent=naira(p);document.getElementById('rUpfront').textContent=naira(u);document.getElementById('rBalance').textContent=naira(balance);document.getElementById('rMonthly').textContent=naira(monthly);document.getElementById('rWeekly').textContent=naira(weekly);calculator.style.display='none';results.style.display='block';window.scrollTo(0,0)};
+document.getElementById('back').onclick=function(){results.style.display='none';calculator.style.display='block';window.scrollTo(0,0)};
+})();
+</script></body></html>
