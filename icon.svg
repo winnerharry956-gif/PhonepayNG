@@ -1,0 +1,18 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="100" fill="#ffffff"/>
+  <rect x="126" y="42" width="260" height="428" rx="48" fill="#00A898"/>
+  <rect x="145" y="82" width="222" height="328" rx="24" fill="#ffffff"/>
+  <rect x="221" y="58" width="70" height="9" rx="4" fill="#ffffff"/>
+  <circle cx="256" cy="438" r="16" fill="#ffffff"/>
+  <rect x="178" y="119" width="156" height="118" rx="22" fill="#FFC00E"/>
+  <text x="256" y="207" font-size="94" font-weight="bold" text-anchor="middle" fill="#006B60">₦</text>
+  <g fill="#00A898">
+    <rect x="179" y="265" width="42" height="42" rx="8"/>
+    <rect x="235" y="265" width="42" height="42" rx="8"/>
+    <rect x="291" y="265" width="42" height="42" rx="8"/>
+    <rect x="179" y="323" width="42" height="42" rx="8"/>
+    <rect x="235" y="323" width="42" height="42" rx="8"/>
+    <rect x="291" y="323" width="42" height="42" rx="8"/>
+  </g>
+</svg>
