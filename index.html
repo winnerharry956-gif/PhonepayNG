@@ -404,7 +404,14 @@
       .container { width: min(100% - 24px, 480px); }
       header { padding: 15px 0; }
       .hero { grid-template-columns: 1fr; padding-top: 17px; gap: 20px; }
-      .phone-art { width: 125px; height: 180px; }
+      
+.phone-art {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin: 0 auto;
+}
+
       .phone-screen { height: 120px; }
       .phone-screen strong { font-size: 17px; }
       .phone-check { margin-top: 6px; }
