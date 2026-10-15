@@ -96,28 +96,60 @@
 
     h1 span { color: var(--teal-dark); }
 
-    .hero p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
+    
+.hero p {
+  max-width: 430px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
 
 
 .phone-art {
+  position: relative;
+  isolation: isolate;
   width: 100%;
-  max-width: 320px;
+  max-width: 300px;
   height: auto;
   margin: 0 auto;
-  padding: 16px;
-  box-sizing: border-box;
-  border: 1px solid #D9F2ED;
-  border-radius: 26px;
-  background: linear-gradient(145deg, #F0FCF9, #FFFFFF);
-  box-shadow: 0 12px 30px rgba(0, 168, 152, 0.12);
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
   overflow: visible;
 }
 
+.phone-art::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 230px;
+  height: 230px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #D3F3EA;
+}
+
+.phone-art::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 8%;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 5px 14px #FFC00E45;
+}
+
 .phone-art img {
+  position: relative;
   display: block;
   width: 100%;
   max-width: 100%;
@@ -125,6 +157,7 @@
   object-fit: contain;
   border-radius: 14px;
 }
+
 
     .phone-speaker {
       width: 35px;
@@ -405,14 +438,22 @@
     @media (max-width: 560px) {
       .container { width: min(100% - 24px, 480px); }
       header { padding: 15px 0; }
-      .hero { grid-template-columns: 1fr; padding-top: 17px; gap: 20px; }
       
+.hero {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 26px;
+  padding: 25px 20px 30px;
+  margin-top: 4px;
+  border-radius: 22px;
+}
+
 .phone-art {
   width: 100%;
-  max-width: 320px;
+  max-width: 270px;
   height: auto;
   margin: 0 auto;
 }
+
 
       .phone-screen { height: 120px; }
       .phone-screen strong { font-size: 17px; }
