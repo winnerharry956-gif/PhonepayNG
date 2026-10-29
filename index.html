@@ -439,7 +439,28 @@
     @media (max-width: 560px) {
       .container { width: min(100% - 24px, 480px); }
       header { padding: 15px 0; }
-      
+    
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .step {
+        padding: 14px 16px;
+        border-radius: 12px;
+      }
+
+      .step h3 {
+        margin: 8px 0 4px;
+        font-size: 15px;
+        line-height: 1.4;
+      }
+
+      .step p {
+        font-size: 13px;
+        line-height: 1.5;
+      }
+  
 .hero {
   grid-template-columns: minmax(0, 1fr);
   gap: 26px;
