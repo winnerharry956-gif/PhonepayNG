@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#00A898">
   <meta name="description" content="Estimate your phone instalment payments with PhonePay NG before you buy.">
-<meta name="google-site-verification" content="DpLXVpJChpLDf8zbgFfmix2YjC8tosADqcxXRaoHiCQ" />
+  <meta name="google-site-verification" content="DpLXVpJChpLDf8zbgFfmix2YjC8tosADqcxXRaoHiCQ">
   <link rel="manifest" href="manifest.json">
   <title>PhonePay NG | Plan Your Phone Payments</title>
 
@@ -21,7 +21,9 @@
       --line: #DFEAE7;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -36,7 +38,9 @@
       margin: auto;
     }
 
-    header { padding: 20px 0; }
+    header {
+      padding: 20px 0;
+    }
 
     .brand {
       display: flex;
@@ -63,7 +67,9 @@
       letter-spacing: -.7px;
     }
 
-    .brand-name span { color: var(--teal-dark); }
+    .brand-name span {
+      color: var(--teal-dark);
+    }
 
     .brand-tagline {
       font-size: 12px;
@@ -72,7 +78,7 @@
 
     .hero {
       display: grid;
-      grid-template-columns: 1fr 180px;
+      grid-template-columns: minmax(0, 1fr) 180px;
       align-items: center;
       gap: 22px;
       padding: 25px 0 32px;
@@ -95,70 +101,68 @@
       letter-spacing: -1.5px;
     }
 
-    h1 span { color: var(--teal-dark); }
+    h1 span {
+      color: var(--teal-dark);
+    }
 
-    
-.hero p {
-  max-width: 430px;
-  margin: 0;
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.8;
-}
+    .hero p {
+      max-width: 430px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
 
+    .phone-art {
+      position: relative;
+      isolation: isolate;
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      margin: 0 auto;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+    }
 
+    .phone-art::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 230px;
+      height: 230px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: #D3F3EA;
+    }
 
-.phone-art {
-  position: relative;
-  isolation: isolate;
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  margin: 0 auto;
-  padding: 0;
-  border: none;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  overflow: visible;
-}
+    .phone-art::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 8%;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--yellow);
+      box-shadow: 0 5px 14px #FFC00E45;
+    }
 
-.phone-art::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 230px;
-  height: 230px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: #D3F3EA;
-}
-
-.phone-art::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 8%;
-  right: 0;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--yellow);
-  box-shadow: 0 5px 14px #FFC00E45;
-}
-
-.phone-art img {
-  position: relative;
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 14px;
-}
-
+    .phone-art img {
+      position: relative;
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 14px;
+    }
 
     .phone-speaker {
       width: 35px;
@@ -169,40 +173,41 @@
     }
 
     .phone-screen {
-  height: 145px;
-  padding: 12px 4px;
-  border-radius: 12px;
-  background: #E8F8F5;
-  overflow: hidden;
-}
+      height: 145px;
+      padding: 12px 4px;
+      border-radius: 12px;
+      background: #E8F8F5;
+      overflow: hidden;
+    }
+
     .phone-screen small {
       font-size: 10px;
       color: var(--muted);
     }
 
     .phone-screen strong {
-  display: block;
-  margin-top: 7px;
-  color: var(--teal-dark);
-  font-size: 11px;
-  line-height: 1.25;
-  white-space: nowrap;
-  overflow-wrap: normal;
-}
+      display: block;
+      margin-top: 7px;
+      color: var(--teal-dark);
+      font-size: 11px;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow-wrap: normal;
+    }
 
-.phone-check {
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: 30px;
-  margin-top: 6px;
-  border-radius: 50%;
-  background-color: #FFC00E;
-  color: #263633;
-  font-size: 18px;
-  font-weight: bold;
-  flex-shrink: 0;
-}
+    .phone-check {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      margin-top: 6px;
+      border-radius: 50%;
+      background-color: #FFC00E;
+      color: #263633;
+      font-size: 18px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
 
     .section-heading {
       text-align: center;
@@ -250,10 +255,17 @@
       font-weight: bold;
     }
 
-    .card-title strong { display: block; }
-    .card-title small { color: var(--muted); }
+    .card-title strong {
+      display: block;
+    }
 
-    .field { margin-bottom: 19px; }
+    .card-title small {
+      color: var(--muted);
+    }
+
+    .field {
+      margin-bottom: 19px;
+    }
 
     label {
       display: block;
@@ -262,7 +274,9 @@
       font-weight: bold;
     }
 
-    .moneybox { position: relative; }
+    .moneybox {
+      position: relative;
+    }
 
     .currency {
       position: absolute;
@@ -315,8 +329,13 @@
       cursor: pointer;
     }
 
-    button:hover { background: var(--teal-dark); }
-    button:active { transform: scale(.99); }
+    button:hover {
+      background: var(--teal-dark);
+    }
+
+    button:active {
+      transform: scale(.99);
+    }
 
     .error {
       display: none;
@@ -329,7 +348,9 @@
       font-weight: bold;
     }
 
-    .result { display: none; }
+    .result {
+      display: none;
+    }
 
     .result-heading {
       display: flex;
@@ -363,8 +384,14 @@
       font-size: 14px;
     }
 
-    .row-label { color: var(--muted); }
-    .amount { text-align: right; font-weight: 800; }
+    .row-label {
+      color: var(--muted);
+    }
+
+    .amount {
+      text-align: right;
+      font-weight: 800;
+    }
 
     .highlight {
       margin: 0 -12px;
@@ -391,11 +418,23 @@
       font-size: 12px;
     }
 
-    .notice strong { display: block; margin-bottom: 5px; }
-    .notice p { margin: 0; }
+    .notice strong {
+      display: block;
+      margin-bottom: 5px;
+    }
 
-    .back { background: #E5F6F2; color: var(--teal-dark); }
-    .back:hover { background: #D3F0E9; }
+    .notice p {
+      margin: 0;
+    }
+
+    .back {
+      background: #E5F6F2;
+      color: var(--teal-dark);
+    }
+
+    .back:hover {
+      background: #D3F0E9;
+    }
 
     .how {
       padding: 8px 0 42px;
@@ -425,8 +464,16 @@
       font-weight: bold;
     }
 
-    .step h3 { margin: 12px 0 5px; font-size: 15px; }
-    .step p { margin: 0; color: var(--muted); font-size: 13px; }
+    .step h3 {
+      margin: 12px 0 5px;
+      font-size: 15px;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
 
     footer {
       padding: 22px 0;
@@ -436,22 +483,63 @@
       text-align: center;
     }
 
+    /* Mobile layout */
     @media (max-width: 560px) {
-      .container { width: min(100% - 24px, 480px); }
-      header { padding: 15px 0; }
-    
+      .container {
+        width: min(100% - 24px, 480px);
+      }
+
+      header {
+        padding: 15px 0;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+        padding: 25px 18px 28px;
+        margin-top: 4px;
+        border-radius: 22px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .phone-art {
+        width: 100%;
+        max-width: 270px;
+        margin: 0 auto;
+      }
+
+      .phone-art::before {
+        width: 190px;
+        height: 190px;
+      }
+
+      .card {
+        padding: 19px;
+      }
+
       .steps {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 12px;
       }
 
       .step {
-        padding: 14px 16px;
-        border-radius: 12px;
+        display: grid;
+        grid-template-columns: 30px minmax(0, 1fr);
+        align-items: start;
+        gap: 0 12px;
+        padding: 15px 16px;
+        border-radius: 13px;
+      }
+
+      .step-number {
+        grid-row: 1 / span 2;
       }
 
       .step h3 {
-        margin: 8px 0 4px;
+        margin: 2px 0 4px;
         font-size: 15px;
         line-height: 1.4;
       }
@@ -460,31 +548,43 @@
         font-size: 13px;
         line-height: 1.5;
       }
-  
-.hero {
-  grid-template-columns: minmax(0, 1fr);
-  gap: 26px;
-  padding: 25px 20px 30px;
-  margin-top: 4px;
-  border-radius: 22px;
-}
 
-.phone-art {
-  width: 100%;
-  max-width: 270px;
-  height: auto;
-  margin: 0 auto;
-}
+      .section-heading h2 {
+        font-size: 23px;
+      }
 
+      .row {
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
 
-      .phone-screen { height: 120px; }
-      .phone-screen strong { font-size: 17px; }
-      .phone-check { margin-top: 6px; }
-      .card { padding: 19px; }
-      .steps { grid-template-columns: 1fr; }
-      .step { display: grid; grid-template-columns: 30px 1fr; gap: 0 12px; }
-      .step-number { grid-row: span 2; }
-      .step h3 { margin-top: 0; }
+      .amount {
+        overflow-wrap: anywhere;
+      }
+
+      #video-guide {
+        padding: 20px 14px !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .brand-name {
+        font-size: 20px;
+      }
+
+      .hero {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      .row {
+        gap: 8px;
+        font-size: 13px;
+      }
     }
   </style>
 </head>
@@ -508,15 +608,12 @@
         <p>Plan your budget with a quick estimate of your upfront, monthly and weekly phone payments.</p>
       </div>
 
-      
-<div class="phone-art">
-  <img
-    src="./phonepayng-formal.png"
-    alt="PhonePay NG formal illustration"
-    style="width: 100%; max-width: 420px; height: auto; display: block; margin: 0 auto; object-fit: contain;"
-  >
-</div>
-
+      <div class="phone-art">
+        <img
+          src="./phonepayng-formal.png"
+          alt="PhonePay NG formal illustration"
+        >
+      </div>
     </section>
 
     <section class="container">
@@ -599,17 +696,18 @@
           <h3>Enter the phone price</h3>
           <p>Use the price quoted by the seller.</p>
         </article>
+
         <article class="step">
           <div class="step-number">2</div>
           <h3>Add your upfront amount</h3>
           <p>Enter what you can pay now and select a period.</p>
         </article>
+
         <article class="step">
           <div class="step-number">3</div>
           <h3>Review your estimate</h3>
           <p>Compare the payment with your budget before deciding.</p>
         </article>
-      
       </div>
     </section>
 
@@ -627,14 +725,12 @@
         Watch our short video to learn how to estimate your upfront, monthly and weekly phone payments.
       </p>
 
-      
-<video controls playsinline preload="metadata" style="display:block; width:100%; max-width:640px; aspect-ratio:16 / 9; height:auto; object-fit:contain; margin:0 auto; border-radius:12px; background:#ffffff;">
+      <video controls playsinline preload="metadata" style="display:block; width:100%; max-width:640px; aspect-ratio:16 / 9; height:auto; object-fit:contain; margin:0 auto; border-radius:12px; background:#ffffff;">
         <source src="./phonepayng-promo.mp4" type="video/mp4">
         Your browser does not support video playback.
       </video>
     </section>
   </main>
-
 
   <footer>
     <div class="container">
@@ -686,6 +782,7 @@
         element.addEventListener('blur', function () {
           formatInput(element);
         });
+
         element.addEventListener('input', function () {
           element.value = element.value.replace(/[^0-9₦,.\s]/gi, '');
           error.style.display = 'none';
@@ -752,38 +849,25 @@
     }
   </script>
 
-<div style="text-align:center; margin:20px 0;">
-  <a href="./about.html" style="color:#008f82; font-weight:bold; text-decoration:none;">
-    About PhonePay NG
-  </a>
-</div>
+  <div style="text-align:center; margin:20px 0;">
+    <a href="./about.html" style="color:#008f82; font-weight:bold; text-decoration:none;">
+      About PhonePay NG
+    </a>
+  </div>
 
-
-<footer style="text-align:center; padding:20px; font-size:14px;">
-  <a href="./privacy.html" style="color:#008f82; text-decoration:none;">
-    Privacy Policy
-  </a>
-  &nbsp; | &nbsp;
-  <a href="./terms.html" style="color:#008f82; text-decoration:none;">
-    Terms of Use
-  </a>
-  &nbsp; | &nbsp;
-  <a href="./contact.html" style="color:#008f82; text-decoration:none;">
-    Contact Us
-  </a>
-  &nbsp; | &nbsp;
-  <a href="./phone-installment-guide.html" style="color:#008f82; text-decoration:none;">
-    Phone Instalment Guide
-  </a>
-  &nbsp; | &nbsp;
-  <a href="./how-much-to-save-for-a-phone.html" style="color:#008f82; text-decoration:none;">
-    Phone Savings Guide
-  </a>
-  &nbsp; | &nbsp;
-  <a href="./how-to-buy-a-phone-on-a-budget.html" style="color:#008f82; text-decoration:none;">
-    Budget Phone Guide
-  </a>
-  <p>© 2026 PhonePay NG. All rights reserved.</p>
-</footer>
+  <footer style="text-align:center; padding:20px; font-size:14px;">
+    <a href="./privacy.html" style="color:#008f82; text-decoration:none;">Privacy Policy</a>
+    &nbsp; | &nbsp;
+    <a href="./terms.html" style="color:#008f82; text-decoration:none;">Terms of Use</a>
+    &nbsp; | &nbsp;
+    <a href="./contact.html" style="color:#008f82; text-decoration:none;">Contact Us</a>
+    &nbsp; | &nbsp;
+    <a href="./phone-installment-guide.html" style="color:#008f82; text-decoration:none;">Phone Instalment Guide</a>
+    &nbsp; | &nbsp;
+    <a href="./how-much-to-save-for-a-phone.html" style="color:#008f82; text-decoration:none;">Phone Savings Guide</a>
+    &nbsp; | &nbsp;
+    <a href="./how-to-buy-a-phone-on-a-budget.html" style="color:#008f82; text-decoration:none;">Budget Phone Guide</a>
+    <p>© 2026 PhonePay NG. All rights reserved.</p>
+  </footer>
 </body>
 </html>
