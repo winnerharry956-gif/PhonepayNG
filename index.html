@@ -508,34 +508,34 @@
       }
 
       .steps {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
 
-      .step {
-        display: grid;
-        grid-template-columns: 30px minmax(0, 1fr);
-        align-items: start;
-        gap: 0 12px;
-        padding: 15px 16px;
-        border-radius: 13px;
-      }
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px 8px;
+  border-radius: 13px;
+}
 
-      .step-number {
-        grid-row: 1 / span 2;
-      }
+.step-number {
+  margin-bottom: 2px;
+}
 
-      .step h3 {
-        margin: 2px 0 4px;
-        font-size: 15px;
-        line-height: 1.4;
-      }
+.step h3 {
+  margin: 2px 0 4px;
+  font-size: 12px;
+  line-height: 1.35;
+}
 
-      .step p {
-        font-size: 13px;
-        line-height: 1.5;
-      }
-
+.step p {
+  font-size: 11px;
+  line-height: 1.4;
+}
       .section-heading h2 {
         font-size: 23px;
       }
